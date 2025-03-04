@@ -6,13 +6,25 @@
 #include <vector>
 #include <string>
 
+bool IsValid(std::vector<int>& result, int checkPointIndex, size_t vectorLength){
+    if (result.size() == 3 && (checkPointIndex > 1 && checkPointIndex < (vectorLength - 1))) {
+        return true;
+    } 
+}
+
 std::vector<int> SelectKeyPoints(std::vector<int> distances, int checkpointIndex){
     std::vector<int> result;
-
-    // Write your code here
+    result.push_back(distances[0]);
+    result.push_back(distances[checkpointIndex]);
+    result.push_back(distances[distances.size() - 1]);
     
-    return result;
+    if(IsValid(result, checkpointIndex, distances.size())){
+        return result;
+    }
+    return {0};
 }
+
+
 
 int main(){
     std::vector<int> distances = {3, 5, 4, 6, 7, 8};
