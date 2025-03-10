@@ -8,20 +8,59 @@
 
 // Function to calculate score based on milliseconds difference 
 // You still need to make the bonus multiplier optional with a default value
-double CalculateScore(int millisecondsDiff, double bonusMultiplier){
+double CalculateScore(int millisecondsDiff, double bonusMultiplier = 1.0){
     double score = 0.0;
 
-    // Write your code here
+    if(millisecondsDiff < 0){
+        std::cout << "Invalid!" << std::endl;
+    }
+
+    if(millisecondsDiff <= 50){
+        score += 100 * bonusMultiplier;
+        std::cout << "Perfect" << std::endl;
+    }
+    else if(millisecondsDiff <= 100){
+        score += 70 * bonusMultiplier;
+        std::cout << "Good" << std::endl;
+    }
+    else if(millisecondsDiff <= 200){
+        score += 50 * bonusMultiplier;
+        std::cout << "Okay" << std::endl;
+    }
+    else{
+        score += 0;
+        std::cout << "Miss" << std::endl;
+    }
     
     return score;
 }
 
 // Overloaded function to calculate score based on seconds difference 
 // You still need to make the bonus multiplier optional with a default value
-double CalculateScore(double secondsDiff, double bonusMultiplier){
+double CalculateScore(double secondsDiff, double bonusMultiplier = 1.5){
     double score = 0.0;
+    secondsDiff *= 1000; //convert to milliseconds
     
-    // Write your code here
+    if(secondsDiff < 0.0){
+        std::cout << "Invalid!" << std::endl;
+    }
+
+    if(secondsDiff <= 50){
+        score += 100 * bonusMultiplier;
+        std::cout << "Perfect" << std::endl;
+    }
+    else if(secondsDiff <= 100){
+        score += 70 * bonusMultiplier;
+        std::cout << "Good" << std::endl;
+    }
+    else if(secondsDiff <= 200){
+        score += 50 * bonusMultiplier;
+        std::cout << "Okay" << std::endl;
+    }
+    else{
+        score += 0;
+        std::cout << "Miss" << std::endl;
+    }
 
     return score;
 }
